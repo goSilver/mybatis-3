@@ -28,15 +28,35 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
+ * Node 对象的封装对象，主要为了动态值的替换
+ *
  * @author Clinton Begin
  */
 public class XNode {
 
+  /**
+   * Node节点对象
+   */
   private final Node node;
+  /**
+   * 标签名。例如：<configuration />
+   */
   private final String name;
+  /**
+   * 标签内容
+   */
   private final String body;
+  /**
+   * 标签自己的属性
+   */
   private final Properties attributes;
+  /**
+   * 变量properties对象
+   */
   private final Properties variables;
+  /**
+   * xpath解析器对象
+   */
   private final XPathParser xpathParser;
 
   public XNode(XPathParser xpathParser, Node node, Properties variables) {
