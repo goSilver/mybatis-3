@@ -265,21 +265,21 @@ public class XPathParser {
    * @return Document对象
    */
   private Document createDocument(InputSource inputSource) {
-    // 只能在调用了公共构造器方法后才能调用
+    // 调用createDocument()方法之前一定要先调用commonConstructor()方法完成初始化
     // important: this must only be called AFTER common constructor
     try {
       // 1、创建DocumentBuilderFactory对象
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+      // 对DocumentBuilderFactory对象进行一系列配置
       factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
       factory.setValidating(validation);
-
       factory.setNamespaceAware(false);
       factory.setIgnoringComments(true);
       factory.setIgnoringElementContentWhitespace(false);
       factory.setCoalescing(false);
       factory.setExpandEntityReferences(true);
 
-      // 2、创建DocumentBuilder对象
+      // 2、创建DocumentBuilder对象并进行配置
       DocumentBuilder builder = factory.newDocumentBuilder();
       // 设置实体解析器
       builder.setEntityResolver(entityResolver);
