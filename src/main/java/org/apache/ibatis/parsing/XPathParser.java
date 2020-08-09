@@ -57,7 +57,7 @@ public class XPathParser {
    */
   private boolean validation;
   /**
-   * xml 实体解析器
+   * xml 实体解析器（用于加载本地DTD文件）
    */
   private EntityResolver entityResolver;
   /**
